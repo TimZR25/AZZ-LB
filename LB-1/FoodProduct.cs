@@ -15,7 +15,7 @@ namespace LB_1
             set { _name = value; }
             get { return _name; }
         }
-
+        
         private float _weight;
 
         public float Weight { get { return _weight; } set { _weight = value; } }
