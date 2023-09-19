@@ -44,5 +44,5 @@ namespace LB_1
             Console.WriteLine(bag.GetPossibleSpoiledProductsCount(products));
             bag.Print();
         }
+        }
     }
-}
