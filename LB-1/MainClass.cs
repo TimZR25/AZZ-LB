@@ -10,7 +10,7 @@ namespace LB_1
     {
         static void Main()
         {
-
+            Console.WriteLine("Hello");
         }
     }
 }
