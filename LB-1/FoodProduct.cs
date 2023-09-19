@@ -39,12 +39,10 @@ namespace LB_1
         public float ThermalEnergy { get { return _thermalEnergy; } set { _thermalEnergy = value; } }
 
 
-        public void ChangeStatus()
+        private void ChangeStatus()
         {
             if (_temperature >= _maxTemperature) { _status = "Перегрет"; }
             else { _status = "Переморожен"; }
         }
-
-
     }
 }
