@@ -16,33 +16,33 @@ namespace LB_1
             get { return name; }
         }
 
-        private float weight;
+        private float _weight;
 
-        public float Weight { get { return weight; } set { weight = value; } }
+        public float Weight { get { return _weight; } set { _weight = value; } }
 
-        private float temperature;
-        public float Temperature { get { return temperature; } set { temperature = value; } }
+        private float _temperature;
+        public float Temperature { get { return _temperature; } set { _temperature = value; } }
 
-        private float maxTemperature;
-        public float MaxTemperature { get { return maxTemperature; } set { maxTemperature = value; } }
+        private float _maxTemperature;
+        public float MaxTemperature { get { return _maxTemperature; } set { _maxTemperature = value; } }
 
-        private float minTemperature;
-        public float MinTemperature { get { return minTemperature; } set { minTemperature = value; } }
+        private float _minTemperature;
+        public float MinTemperature { get { return _minTemperature; } set { _minTemperature = value; } }
 
-        private String status = "Нормально";
-        public String Status { get { return status; } set { status = value; } }
+        private string _status = "Нормально";
+        public string Status { get { return _status; } set { _status = value; } }
 
-        private float heatCapacity;
-        public float HeatCapacity { get { return heatCapacity; } set { heatCapacity = value; } }
+        private float _heatCapacity;
+        public float HeatCapacity { get { return _heatCapacity; } set { _heatCapacity = value; } }
 
-        private float thermalEnergy;
-        public float ThermalEnergy { get { return thermalEnergy; } set { thermalEnergy = value; } }
+        private float _thermalEnergy;
+        public float ThermalEnergy { get { return _thermalEnergy; } set { _thermalEnergy = value; } }
 
 
         public void ChangeStatus()
         {
-            if (temperature >= maxTemperature) { status = "Перегрет"; }
-            else { status = "Переморожен"; }
+            if (_temperature >= _maxTemperature) { _status = "Перегрет"; }
+            else { _status = "Переморожен"; }
         }
 
 
