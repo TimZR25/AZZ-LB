@@ -21,28 +21,54 @@ namespace LB_1
                 Console.WriteLine(ex.Message + "\n");
             }
 
-            try
+            catch (ArgumentOutOfRangeException error)
             {
-                bag.AddProduct(new FoodProduct("Мороженое", 0.5, -2.3, 23, -6, 0.35));
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                Console.WriteLine(ex.Message + "\n");
+                Console.WriteLine(error.Message);
             }
 
             try
             {
-                bag.AddProduct(new FoodProduct("Яблоко", 0.3, 22.25, 25, -5, 0.53));
+                FoodProduct foodProduct2 = new FoodProduct("Food", 1350, 139.6, 30, 20, 20);
+                Console.WriteLine(foodProduct2.Name);
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentNullException error)
             {
-                Console.WriteLine(ex.Message + "\n");
+                Console.WriteLine(error.Message);
             }
-            
-            List<FoodProduct> products = new List<FoodProduct>();
-            products.Add(new FoodProduct("Яблоко", 0.3, 100, 25, -5, 0.53));
-            Console.WriteLine(bag.GetPossibleSpoiledProductsCount(products));
-            bag.Print();
+            catch (ArgumentOutOfRangeException error)
+            {
+                Console.WriteLine(error.Message);
+            }
+
+            try
+            {
+                FoodProduct foodProduct3 = new FoodProduct("Food", 1350, 39.6, 40, 20, 10);
+                Console.WriteLine(foodProduct3.Name);
+                Console.WriteLine(foodProduct3.Weight);
+                Console.WriteLine(foodProduct3.Temperature);
+                Console.WriteLine(foodProduct3.MaxTemperature);
+                Console.WriteLine(foodProduct3.MinTemperature);
+                Console.WriteLine(foodProduct3.HeatCapacity);
+                Console.WriteLine(foodProduct3.Status);
+                Console.WriteLine(foodProduct3.C);
+                cout << f1.GetChangeTemperature() << endl;
+                cout << f1.GetChangeTemperature() << endl;
+            }
+            catch (ArgumentNullException error)
+            {
+                Console.WriteLine(error.Message);
+            }
+            catch (ArgumentOutOfRangeException error)
+            {
+                Console.WriteLine(error.Message);
+            }
+
+
+
+
+            //return 0;
+            //}
+
         }
         }
     }

@@ -152,6 +152,7 @@ namespace LB_1
         }
 
         public int CountSpoiledProducts() {
+            if (bag.Count == 0) return 0;
             int countSpoiledProducts = 0;
             foreach (FoodProduct foodProduct in bag) {
                 foodProduct.ChangeStatus();
@@ -159,8 +160,7 @@ namespace LB_1
                     countSpoiledProducts++;
                 }
             }
-
-            Console.WriteLine(new string('=', symbolsPerSide * 2 + Name.Length) + "\n");
+            return countSpoiledProducts;
         }
 
         public int WillCountSpoiledProducts(List<FoodProduct> foodProducts) {
