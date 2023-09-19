@@ -9,11 +9,11 @@ namespace LB_1
     internal class FoodProduct
     {
 
-        private string name;
+        private string _name;
         public string Name
         {
-            set { name = value; }
-            get { return name; }
+            set { _name = value; }
+            get { return _name; }
         }
 
         private float _weight;
