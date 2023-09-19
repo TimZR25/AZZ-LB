@@ -9,11 +9,18 @@ namespace LB_1
     class Bag
     {
         private List<FoodProduct> bag = new List<FoodProduct>();
-        private double maxWeight = 14; // вес в килограммах
+        private double maxWeight; // вес в килограммах
         private double totalWeight = 0;
         public double MaxWeight { get { return maxWeight; } }
 
         public double TotalWeight { set { totalWeight = value; } get { return totalWeight; } }
+
+        private Bag(List<FoodProduct> foodProduct, double maxWeight) {
+            this.maxWeight = maxWeight;
+            bag = foodProduct;
+
+
+        }
         public void SetOfBag(FoodProduct foodProduct)
         {
 
@@ -24,6 +31,7 @@ namespace LB_1
 
         public FoodProduct PeekUpTheProduct()
         {
+            if (bag.Count == 0) throw new ArgumentOutOfRangeException("В сумке нет элементов");
             TotalWeight -= bag[-1].Weight;
             FoodProduct foodProduct = bag.Last();
             bag.Remove(foodProduct);
@@ -35,6 +43,7 @@ namespace LB_1
         }
 
         public void ChangeTheTemperatureInTheBag() {
+            if (bag.Count == 0) throw new ArgumentOutOfRangeException("Пустая сумка");
             double totalTemperature = 0;
             for (int i = 0; i < bag.Count(); i++ ){
                 if (i == 0)
@@ -51,6 +60,7 @@ namespace LB_1
         }
 
         public int CountSpoiledProducts() {
+            if (bag.Count == 0) return 0;
             int countSpoiledProducts = 0;
             foreach (FoodProduct foodProduct in bag) {
                 foodProduct.ChangeStatus();
@@ -59,6 +69,17 @@ namespace LB_1
                 }
             }
             return countSpoiledProducts;
+        }
+
+        public int WillCountSpoiledProducts(List<FoodProduct> foodProducts) {
+            foreach (FoodProduct foodProduct in foodProducts) {
+                this.SetOfBag(foodProduct);
+            }
+            int temp = this.CountSpoiledProducts();
+            for (int i = 0; i < foodProducts.Count(); i++) {
+                this.bag.Remove(PeekUpTheProduct());
+            }
+            return temp;
         }
     }
 }
