@@ -8,6 +8,7 @@ namespace LB_1
 {
     class Bag
     {
+
         private List<FoodProduct> bag = new List<FoodProduct>();
         private double maxWeight; // вес в килограммах
         private double totalWeight = 0;
