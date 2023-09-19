@@ -15,7 +15,8 @@ namespace LB_1
             MaxWeight = maxWeight;
         }
 
-        public Bag(string name, double maxWeight)
+        public double TotalWeight { set { totalWeight = value; } get { return totalWeight; } }
+        public void SetOfBag(FoodProduct foodProduct)
         {
             Name = name;
             MaxWeight = maxWeight;
@@ -39,8 +40,10 @@ namespace LB_1
         private double _weight;
         public double Weight
         {
-            get { return _weight; }
-            private set {  _weight = value; }
+            TotalWeight -= bag[-1].Weight;
+            FoodProduct foodProduct = bag.Last();
+            bag.Remove(foodProduct);
+            return foodProduct;
         }
 
         private double _maxWeight;
@@ -89,6 +92,7 @@ namespace LB_1
                 return;
             }
 
+        public void ChangeTheTemperatureInTheBag() {
             double totalTemperature = 0;
 
             foreach (FoodProduct product in _products)
@@ -147,24 +151,27 @@ namespace LB_1
             return count;
         }
 
-        public void Print()
-        {
-            if (ProductsCount == 0)
-            {
-                Console.WriteLine("--------Сумка пуста!--------");
-                return;
-            }
-
-            int maxSymbolLenght = 35;
-            int symbolsPerSide = (maxSymbolLenght - Name.Length) % 2 == 0 ? (maxSymbolLenght - Name.Length) / 2 : (maxSymbolLenght - Name.Length) / 2 + 1;
-            Console.WriteLine(new string('=', symbolsPerSide) + Name + new string('=', symbolsPerSide));
-
-            foreach (FoodProduct product in _products)
-            {
-                product.Print();
+        public int CountSpoiledProducts() {
+            int countSpoiledProducts = 0;
+            foreach (FoodProduct foodProduct in bag) {
+                foodProduct.ChangeStatus();
+                if (!foodProduct.Status.Equals("Нормально")) {
+                    countSpoiledProducts++;
+                }
             }
 
             Console.WriteLine(new string('=', symbolsPerSide * 2 + Name.Length) + "\n");
+        }
+
+        public int WillCountSpoiledProducts(List<FoodProduct> foodProducts) {
+            foreach (FoodProduct foodProduct in foodProducts) {
+                this.SetOfBag(foodProduct);
+            }
+            int temp = this.CountSpoiledProducts();
+            for (int i = 0; i < foodProducts.Count(); i++) {
+                this.bag.Remove(PeekUpTheProduct());
+            }
+            return temp;
         }
     }
 }
