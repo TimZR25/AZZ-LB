@@ -10,7 +10,9 @@ namespace LB_1
     {
         static void Main()
         {
-            Console.WriteLine("Hello");
+            Bag bag = new Bag();
+
+            bag.AddProduct(new FoodProduct());
         }
     }
 }
