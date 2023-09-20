@@ -38,7 +38,6 @@ namespace LB_1
             {
                 Console.WriteLine(ex.Message + "\n");
             }
-
             bag.Print();
 
             Console.WriteLine($"Количество испорченных продуктов: {bag.GetSpoiledProductsCount()}");
