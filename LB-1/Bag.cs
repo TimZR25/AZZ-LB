@@ -17,13 +17,15 @@ namespace LB_1
             MaxWeight = maxWeight;
         }
 
-        public Bag(string name, double maxWeight)
+        public double TotalWeight { set { totalWeight = value; } get { return totalWeight; } }
+        public void SetOfBag(FoodProduct foodProduct)
         {
             Name = name;
             MaxWeight = maxWeight;
         }
 
         private List<FoodProduct> _products = new List<FoodProduct>();
+
 
         public int ProductsCount => _products.Count;
 

@@ -20,23 +20,23 @@ namespace LB_1
             {
                 Console.WriteLine(ex.Message + "\n");
             }
-
+          
             try
             {
                 bag.AddProduct(new FoodProduct("Мороженое", 0.1, -2.3, 0, -6, 0.35));
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException error)
             {
-                Console.WriteLine(ex.Message + "\n");
+                Console.WriteLine(error.Message);
             }
 
             try
             {
                 bag.AddProduct(new FoodProduct("Яблоко", 0.1, 22.25, 25, -5, 0.53));
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentNullException error)
             {
-                Console.WriteLine(ex.Message + "\n");
+                Console.WriteLine(error.Message);
             }
 
             bag.Print();
@@ -48,4 +48,3 @@ namespace LB_1
             Console.WriteLine($"Количество возможно испорченных продуктов при добавление новых продуктов: {bag.GetPossibleSpoiledProductsCount(products)}");
         }
     }
-}

@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace LB_1
 {
-    internal class FoodProduct
+    class FoodProduct
     {
         public FoodProduct(string name = "NULL", double weight = 0, double temperature = 0, double maxTemperature = 0,
             double minTemperature = 0, double heatCapacity = 0)
@@ -52,52 +52,16 @@ namespace LB_1
             } 
         }
 
-        private double _temperature;
-        public double Temperature 
-        { 
-            get { return _temperature; }
-            set
-            {
-                if ((value <= -30) || (value >= 110)) throw new ArgumentOutOfRangeException("Неправильно указана температура продукта");
-                _temperature = value;
+        public float Weight { get { return _weight; } set { _weight = value; } }
 
-                Status = ProductStatus.NORMAL;
-                if (_temperature >= MaxTemperature) Status = ProductStatus.OVERHEATED;
-                if (_temperature <= MinTemperature) Status = ProductStatus.FROSTBITTEN;
-            } 
-        }
+        private float _temperature;
+        public float Temperature { get { return _temperature; } set { _temperature = value; } }
 
-        private double _maxTemperature;
-        public double MaxTemperature 
-        { 
-            get { return _maxTemperature; } 
-            private set 
-            {
-                if ((value <= -30) || (value >= 110)) throw new ArgumentOutOfRangeException("Неправильно указана максимальная температура продукта");
-                _maxTemperature = value; 
-            } 
-        }
+        private float _maxTemperature;
+        public float MaxTemperature { get { return _maxTemperature; } set { _maxTemperature = value; } }
 
-        private double _minTemperature;
-        public double MinTemperature 
-        { 
-            get { return _minTemperature; } 
-            private set 
-            {
-                if ((value <= -30) || (value >= 110)) throw new ArgumentOutOfRangeException("Неправильно указана минимальная температура продукта");
-                _minTemperature = value; 
-            } 
-        }
-
-        private ProductStatus _status;
-        public ProductStatus Status 
-        { 
-            get { return _status; }
-            private set
-            {
-                _status = value; 
-            } 
-        }
+        private float _minTemperature;
+        public float MinTemperature { get { return _minTemperature; } set { _minTemperature = value; } }
 
         private double _heatCapacity;
         public double HeatCapacity 
@@ -110,29 +74,17 @@ namespace LB_1
             } 
         }
 
-        public void Print()
+        private float _heatCapacity;
+        public float HeatCapacity { get { return _heatCapacity; } set { _heatCapacity = value; } }
+
+        private float _thermalEnergy;
+        public float ThermalEnergy { get { return _thermalEnergy; } set { _thermalEnergy = value; } }
+
+
+        private void ChangeStatus()
         {
-            int maxSymbolLenght = 25;
-            bool isEvenNumber = (maxSymbolLenght - Name.Length) % 2 == 0;
-            int symbolsPerSide = isEvenNumber ? (maxSymbolLenght - Name.Length) / 2 : (maxSymbolLenght - Name.Length) / 2 + 1;
-
-            Console.WriteLine(new string('-', symbolsPerSide) + Name + new string('-', symbolsPerSide));
-            Console.WriteLine($"Масса: {Weight:0.00} кг");
-            Console.WriteLine($"Температура: {Temperature:0.00} °C");
-            Console.WriteLine($"Статус: {Status}");
-
-            if (isEvenNumber == false) Console.WriteLine(new string('-', maxSymbolLenght + 1) + "\n");
-            else Console.WriteLine(new string('-', maxSymbolLenght) + "\n");
+            if (_temperature >= _maxTemperature) { _status = "Перегрет"; }
+            else { _status = "Переморожен"; }
         }
-
-        public void TransferThermalEnergy(double thermalEnergy)
-        {
-            if (thermalEnergy == 0) return;
-            Temperature = thermalEnergy / HeatCapacity;
-        }
-    }
-    public enum ProductStatus
-    {
-        NORMAL, OVERHEATED, FROSTBITTEN
     }
 }
