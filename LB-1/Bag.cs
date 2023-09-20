@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +60,7 @@ namespace LB_1
         {
             if (Weight + newProduct.Weight > _maxWeight)
             {
-                throw new ArgumentOutOfRangeException($"Невозможно добавить ---{newProduct.Name}--- c весом {newProduct.Weight} в сумку! Превышен лимит максимального веса {_maxWeight}!\n");
+                throw new ArgumentOutOfRangeException($"Невозможно добавить ---{newProduct.Name}--- c весом {newProduct.Weight} кг в сумку! Превышен лимит максимального веса сумки в {_maxWeight} кг!\n");
             }
 
             Weight += newProduct.Weight;
@@ -134,12 +136,12 @@ namespace LB_1
             Bag tempBag = new Bag(Name, MaxWeight);
             foreach (FoodProduct product in _products)
             {
-                tempBag.AddProduct(product);
+                tempBag.AddProduct(new FoodProduct(product));
             }
 
             foreach (FoodProduct product in foodProducts)
             {
-                tempBag.AddProduct(product);
+                tempBag.AddProduct(new FoodProduct(product));
             }
 
             int count = tempBag.GetSpoiledProductsCount();

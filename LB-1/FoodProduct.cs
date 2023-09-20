@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LB_1
 {
@@ -17,6 +18,16 @@ namespace LB_1
             HeatCapacity = heatCapacity;
             MaxTemperature = maxTemperature;
             MinTemperature = minTemperature;
+        }
+
+        public FoodProduct(FoodProduct foodProduct)
+        {
+            Name = foodProduct.Name;
+            Weight = foodProduct.Weight;
+            Temperature = foodProduct.Temperature;
+            HeatCapacity = foodProduct.HeatCapacity;
+            MaxTemperature = foodProduct.MaxTemperature;
+            MinTemperature = foodProduct.MinTemperature;
         }
 
         private string _name = "NULL";

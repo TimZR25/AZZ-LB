@@ -10,7 +10,7 @@ namespace LB_1
     {
         static void Main()
         {
-            Bag bag = new Bag("Сумка адын", 5);
+            Bag bag = new Bag("Сумка №1", 5);
 
             try
             {
@@ -23,7 +23,7 @@ namespace LB_1
 
             try
             {
-                bag.AddProduct(new FoodProduct("Мороженое", 0.5, -2.3, 23, -6, 0.35));
+                bag.AddProduct(new FoodProduct("Мороженое", 0.1, -2.3, 0, -6, 0.35));
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -32,17 +32,20 @@ namespace LB_1
 
             try
             {
-                bag.AddProduct(new FoodProduct("Яблоко", 0.3, 22.25, 25, -5, 0.53));
+                bag.AddProduct(new FoodProduct("Яблоко", 0.1, 22.25, 25, -5, 0.53));
             }
             catch (ArgumentOutOfRangeException ex)
             {
                 Console.WriteLine(ex.Message + "\n");
             }
-            
-            List<FoodProduct> products = new List<FoodProduct>();
-            products.Add(new FoodProduct("Яблоко", 0.3, 100, 25, -5, 0.53));
-            Console.WriteLine(bag.GetPossibleSpoiledProductsCount(products));
+
             bag.Print();
+
+            Console.WriteLine($"Количество испорченных продуктов: {bag.GetSpoiledProductsCount()}");
+
+            List<FoodProduct> products = new List<FoodProduct>();
+            products.Add(new FoodProduct("Кофе", 0.3, 80, 25, -5, 0.53));
+            Console.WriteLine($"Количество возможно испорченных продуктов при добавление новых продуктов: {bag.GetPossibleSpoiledProductsCount(products)}");
         }
     }
 }
