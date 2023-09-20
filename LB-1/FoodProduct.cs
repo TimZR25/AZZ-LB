@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace LB_1
 {
-    internal class FoodProduct
+    public class FoodProduct
     {
         public FoodProduct(string name = "NULL", double weight = 0, double temperature = 0, double maxTemperature = 0,
             double minTemperature = 0, double heatCapacity = 0)
@@ -29,6 +29,7 @@ namespace LB_1
             MaxTemperature = foodProduct.MaxTemperature;
             MinTemperature = foodProduct.MinTemperature;
         }
+
 
         private string _name = "NULL";
         public string Name

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LB_1
 {
-    internal class Bag
+    public class Bag
     {
         public Bag(List<FoodProduct> products, string name, double maxWeight)
         {
@@ -79,7 +79,7 @@ namespace LB_1
                 _products.Remove(product);
                 return product;
             }
-            Console.WriteLine("Продукта с таким именем не существует!");
+            Console.WriteLine("Продукт с таким именем не существует!");
             return null;
         }
 
