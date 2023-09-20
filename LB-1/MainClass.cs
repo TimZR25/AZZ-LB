@@ -10,7 +10,7 @@ namespace LB_1
     {
         static void Main()
         {
-            Bag bag = new Bag("Сумка адын", 5);
+            Bag bag = new Bag("Сумка №1", 5);
 
             try
             {
@@ -21,54 +21,31 @@ namespace LB_1
                 Console.WriteLine(ex.Message + "\n");
             }
 
-            catch (ArgumentOutOfRangeException error)
+            try
             {
-                Console.WriteLine(error.Message);
+                bag.AddProduct(new FoodProduct("Мороженое", 0.1, -2.3, 0, -6, 0.35));
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message + "\n");
             }
 
             try
             {
-                FoodProduct foodProduct2 = new FoodProduct("Food", 1350, 139.6, 30, 20, 20);
-                Console.WriteLine(foodProduct2.Name);
+                bag.AddProduct(new FoodProduct("Яблоко", 0.1, 22.25, 25, -5, 0.53));
             }
-            catch (ArgumentNullException error)
+            catch (ArgumentOutOfRangeException ex)
             {
-                Console.WriteLine(error.Message);
-            }
-            catch (ArgumentOutOfRangeException error)
-            {
-                Console.WriteLine(error.Message);
+                Console.WriteLine(ex.Message + "\n");
             }
 
-            try
-            {
-                FoodProduct foodProduct3 = new FoodProduct("Food", 1350, 39.6, 40, 20, 10);
-                Console.WriteLine(foodProduct3.Name);
-                Console.WriteLine(foodProduct3.Weight);
-                Console.WriteLine(foodProduct3.Temperature);
-                Console.WriteLine(foodProduct3.MaxTemperature);
-                Console.WriteLine(foodProduct3.MinTemperature);
-                Console.WriteLine(foodProduct3.HeatCapacity);
-                Console.WriteLine(foodProduct3.Status);
-                Console.WriteLine(foodProduct3.C);
-                cout << f1.GetChangeTemperature() << endl;
-                cout << f1.GetChangeTemperature() << endl;
-            }
-            catch (ArgumentNullException error)
-            {
-                Console.WriteLine(error.Message);
-            }
-            catch (ArgumentOutOfRangeException error)
-            {
-                Console.WriteLine(error.Message);
-            }
+            bag.Print();
 
+            Console.WriteLine($"Количество испорченных продуктов: {bag.GetSpoiledProductsCount()}");
 
-
-
-            //return 0;
-            //}
-
-        }
+            List<FoodProduct> products = new List<FoodProduct>();
+            products.Add(new FoodProduct("Кофе", 0.3, 80, 25, -5, 0.53));
+            Console.WriteLine($"Количество возможно испорченных продуктов при добавление новых продуктов: {bag.GetPossibleSpoiledProductsCount(products)}");
         }
     }
+}
