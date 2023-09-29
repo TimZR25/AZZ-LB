@@ -9,28 +9,6 @@ namespace LB_1
 {
     public class FoodProduct
     {
-        public FoodProduct(string name = "NULL", double weight = 0, double temperature = 0, double maxTemperature = 0,
-            double minTemperature = 0, double heatCapacity = 0)
-        {
-            Name = name;
-            Weight = weight;
-            Temperature = temperature;
-            HeatCapacity = heatCapacity;
-            MaxTemperature = maxTemperature;
-            MinTemperature = minTemperature;
-        }
-
-        public FoodProduct(FoodProduct foodProduct)
-        {
-            Name = foodProduct.Name;
-            Weight = foodProduct.Weight;
-            Temperature = foodProduct.Temperature;
-            HeatCapacity = foodProduct.HeatCapacity;
-            MaxTemperature = foodProduct.MaxTemperature;
-            MinTemperature = foodProduct.MinTemperature;
-        }
-
-
         private string _name = "NULL";
         public string Name
         {
@@ -109,6 +87,27 @@ namespace LB_1
                 if (value <= 0) throw new ArgumentOutOfRangeException("Неправильно указана теплоемкость продукта");
                 _heatCapacity = value;
             }
+        }
+
+        public FoodProduct(string name = "NULL", double weight = 0, double temperature = 0, double maxTemperature = 0,
+            double minTemperature = 0, double heatCapacity = 0)
+        {
+            Name = name;
+            Weight = weight;
+            Temperature = temperature;
+            HeatCapacity = heatCapacity;
+            MaxTemperature = maxTemperature;
+            MinTemperature = minTemperature;
+        }
+
+        public FoodProduct(FoodProduct foodProduct)
+        {
+            Name = foodProduct.Name;
+            Weight = foodProduct.Weight;
+            Temperature = foodProduct.Temperature;
+            HeatCapacity = foodProduct.HeatCapacity;
+            MaxTemperature = foodProduct.MaxTemperature;
+            MinTemperature = foodProduct.MinTemperature;
         }
 
         public void Print()
