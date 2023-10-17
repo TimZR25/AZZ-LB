@@ -1,5 +1,4 @@
-﻿using LB3_3;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,12 +12,55 @@ namespace LB3_2
             //Часть 1
             Console.WriteLine("---------------Часть №1----------------------");
 
-            int N1 = 3;
-            int N2 = 5;
-            Matrix matrix = new Matrix(N1, N2);
-            matrix[0, 1] = 1;
+            const int N1 = 4;
+            const int N2 = 4;
 
-            //matrix.PrintMatrix();
+            Matrix matrix = new Matrix(new int[N1, N2] { 
+            { 1, 2, 3, 4}, 
+            { 1, 2, 3, 4}, 
+            { 1, 2, 3, 4}, 
+            { 1, 2, 3, 4}
+            });
+
+            matrix[0, 2] = 1;
+
+            matrix.PrintMatrix();
+
+            matrix--;
+
+            matrix.PrintMatrix();
+
+            matrix++;
+
+            matrix.PrintMatrix();
+
+            int count = matrix;
+
+            Console.WriteLine("Количество нулевых элементов: " + count + "\n");
+
+            Console.WriteLine("Проверка на квадратность матрицы: " + MatrixExtension.SquareMatrix(matrix) + "\n");
+
+            Console.WriteLine("Модуль матрицы: " + matrix.ModMatrix());
+
+            Matrix matrix1 = new Matrix(new int[N1, N2] {
+            { 1, 2, 3, 4},
+            { 1, 2, -3, 4},
+            { 1, 2, 3, 4},
+            { 1, 2, 3, 4}
+            });
+
+            Console.WriteLine("\nМатрицы равны: " + (matrix == matrix1));
+
+            matrix1[0, 0] = -1;
+
+            Console.WriteLine("\nМатрицы не равны: " + (matrix1 != matrix));
+
+
+            // Пример расширения класса String
+
+            string a = "555ad551b01";
+            Console.WriteLine("\nКоличество целых чисел в строке: " + a.SumNumber());
+
             // Часть 2
 
             Console.WriteLine("\n---------------Часть №2----------------------");
