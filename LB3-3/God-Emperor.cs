@@ -9,16 +9,22 @@ namespace LB3_3
     internal class God_Emperor : Unit
     {
 
-        public God_Emperor(int x, int y, Field field) {
-            for (int i = 0; i < field.size * field.size; i++) {
-                if (field) { }
-            }//hjuiohuioj
-            Health = 9999;
-            Armor = 9999;
+        public God_Emperor()
+        {
+            Health = int.MaxValue;
+            Armor = int.MaxValue;
+            distance = int.MaxValue;
+
         }
+
         public override void Death()
         {
             throw new NotImplementedException();
+        }
+
+        public override string GetSign()
+        {
+            return "G";
         }
 
         public override void Move()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace LB3_3
 {
@@ -11,6 +12,7 @@ namespace LB3_3
         private List<Cell> field;
 
         public int? size { get; }
+
 
         private static Field instance;
 
@@ -43,6 +45,15 @@ namespace LB3_3
 
                 if (count % size == 0) {
                 Console.WriteLine();
+                }
+            }
+        }
+
+        public void AddModel(ICellable model, int x, int y) {
+            for (int i = 0; i < field.Count; i++) { 
+                if (field[i].x == x && field[i].y == y) {
+                    if (field[i].GetIsEmpty() == true) field[i].AddModelInCell(model);
+                    break;
                 }
             }
         }

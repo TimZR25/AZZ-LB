@@ -8,11 +8,13 @@ namespace LB3_3
 {
     internal class Cell
     {
-        int x;
+        public int x { get; }
 
-        int y;
+        public int y { get; }
 
-        bool isEmpty = true;
+        private bool isEmpty = true;
+
+        ICellable model;
 
         string sign = "0";
         public Cell(int x, int y)
@@ -26,10 +28,18 @@ namespace LB3_3
         //    return $"{x}:{y} ";
         //}
 
+        public void AddModelInCell(ICellable model) {
+            this.model = model;
+            sign = model.GetSign();
+        }
+
         public override string ToString()
         {
             return sign + " ";
         }
 
+        public bool GetIsEmpty() {
+            return isEmpty;
+        }
     }
 }
