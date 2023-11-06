@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LB3_3
 {
-    internal interface ICellable
+    internal class Rock : IObstacle
     {
-        public string GetSign();
-
-        enum Direction { Left, Right, Up, Down }
+        public string GetSign()
+        {
+            return "R";
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace LB3_3
             Console.WriteLine("===============================\n\n");
 
             field.AddModel(new God_Emperor(), 1, 0);
-
+            field.AddModel(new Rock(), 1, 1);
             field.FieldOut();
         }
     }

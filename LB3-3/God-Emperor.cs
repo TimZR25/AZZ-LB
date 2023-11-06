@@ -14,12 +14,13 @@ namespace LB3_3
             Health = int.MaxValue;
             Armor = int.MaxValue;
             distance = int.MaxValue;
-
         }
 
         public override void Death()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Бог не может умереть");
+            Health = int.MaxValue;
+            Armor = int.MaxValue;
         }
 
         public override string GetSign()

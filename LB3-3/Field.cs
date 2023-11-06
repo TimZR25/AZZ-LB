@@ -53,6 +53,7 @@ namespace LB3_3
             for (int i = 0; i < field.Count; i++) { 
                 if (field[i].x == x && field[i].y == y) {
                     if (field[i].GetIsEmpty() == true) field[i].AddModelInCell(model);
+                    else { Console.WriteLine("Нельзя поставить модель в занятое поле\n"); }
                     break;
                 }
             }

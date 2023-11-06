@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace LB3_3
 {
-    internal interface ICellable
+    internal interface IObstacle : ICellable
     {
-        public string GetSign();
-
-        enum Direction { Left, Right, Up, Down }
     }
 }
