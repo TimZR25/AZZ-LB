@@ -38,7 +38,7 @@ namespace LB3_2
 
             Console.WriteLine("Количество нулевых элементов: " + count + "\n");
 
-            Console.WriteLine("Проверка на квадратность матрицы: " + MatrixExtension.SquareMatrix(matrix) + "\n");
+            Console.WriteLine("Проверка на квадратность матрицы: " + matrix.SquareMatrix() + "\n");
 
             Console.WriteLine("Модуль матрицы: " + matrix.ModMatrix());
 
