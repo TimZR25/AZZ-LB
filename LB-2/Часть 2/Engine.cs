@@ -30,7 +30,7 @@ namespace LB3_2
             Status = StatusEngine.OFF;
         }
 
-        public override String ToString() {
+        public override string ToString() {
             return $"Мощность двигателя: {Power}, Состояние двигателя: {Status}";
         }
     }

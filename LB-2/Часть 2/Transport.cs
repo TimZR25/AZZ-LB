@@ -10,7 +10,7 @@ namespace LB3_2
     {
         protected double MaxSpeed { get; set; }
 
-        protected String Model { get; set; }
+        protected string Model { get; set; }
 
         protected int CreationYear { get; set; }
 
