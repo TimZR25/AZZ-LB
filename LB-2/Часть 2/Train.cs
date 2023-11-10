@@ -10,7 +10,7 @@ namespace LB3_2
 {
     internal class Train : Transport
     {
-        private Engine TrainEngine { get; set; }
+        public Engine TrainEngine { get; private set; }
 
         private double CarriageCapacity { get; set; }
 
@@ -53,7 +53,7 @@ namespace LB3_2
 
         public override string ToString()
         {
-            String s = "\nВместимость вагонов поезда:";
+            string s = "\nВместимость вагонов поезда:";
             if (Carriages.Count == 0) { s = ""; }
 
             for (int i = 0; i < Carriages.Count; i++)

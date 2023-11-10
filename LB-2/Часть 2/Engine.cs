@@ -8,7 +8,7 @@ namespace LB3_2
 {
     internal class Engine
     {
-        private int Power { set; get; }
+        public int Power { get; private set; }
 
         enum StatusEngine {
             OFF,
