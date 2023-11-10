@@ -10,7 +10,7 @@ namespace LB3_2
 {
     internal class Train : Transport
     {
-        private Engine TrainEngine { get; set; }
+        public Engine TrainEngine { get; private set; }
 
         private double CarriageCapacity { get; set; }
 

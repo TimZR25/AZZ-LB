@@ -91,7 +91,6 @@ namespace LB3_2
 
             Console.WriteLine(carriage2.Equals(carriage1));
             Console.WriteLine(carriage2.GetHashCode() == carriage1.GetHashCode());
-
         }
     }
 }

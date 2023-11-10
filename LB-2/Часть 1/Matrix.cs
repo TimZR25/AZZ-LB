@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LB3_2
 {
-    class Matrix
+    internal class Matrix
     {
         private int[,] _matrix;
 

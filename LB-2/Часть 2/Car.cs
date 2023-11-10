@@ -10,7 +10,7 @@ namespace LB3_2
 {
     internal class Car : Transport
     {
-        private Engine CarEngine { get; set; }
+        public Engine CarEngine { get; private set; }
 
         public Car(string model, double maxSpeed, int creationYear, double price, int power)
         {
