@@ -59,7 +59,7 @@ namespace LB3_2
             // Пример расширения класса String
 
             string a = "555ad551b01";
-            Console.WriteLine("\nКоличество целых чисел в строке: " + a.SumNumber());
+            Console.WriteLine("\nСумма целых чисел в строке: " + a.SumNumber());
 
             // Часть 2
 

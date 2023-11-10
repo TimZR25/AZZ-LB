@@ -53,7 +53,7 @@ namespace LB3_2
 
         public override string ToString()
         {
-            String s = "\nВместимость вагонов поезда:";
+            string s = "\nВместимость вагонов поезда:";
             if (Carriages.Count == 0) { s = ""; }
 
             for (int i = 0; i < Carriages.Count; i++)
@@ -61,7 +61,7 @@ namespace LB3_2
                 s = s + "\nВагон " + i + " " + Carriages[i].ToString();
             }
             return new string($"Данные поезда:\nМодель: {Model}, Максимальная скорость: {MaxSpeed}, " +
-                $"Год создания: {CreationYear}\nСтоимость: {Price}, {TrainEngine.ToString()}, Общая вместимость вагонов: {CarriageCapacity}" + s);
+                $"Год создания: {CreationYear}\nСтоимость: {Price}, {TrainEngine}, Общая вместимость вагонов: {CarriageCapacity}" + s);
         }
     }
 }
