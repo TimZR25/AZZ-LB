@@ -12,7 +12,7 @@ namespace LB3_2
     {
         private Engine CarEngine { get; set; }
 
-        public Car(String model, double maxSpeed, int creationYear, double price, int power)
+        public Car(string model, double maxSpeed, int creationYear, double price, int power)
         {
             Model = model;
             MaxSpeed = maxSpeed;
@@ -33,10 +33,10 @@ namespace LB3_2
             Console.WriteLine("Автомобиль остановился");
         }
 
-        public override String ToString()
+        public override string ToString()
         {
             return new string($"Данные машины:\nМодель: {Model}, Максимальная скорость: {MaxSpeed}, " +
-                $"Год создания: {CreationYear}\nСтоимость: {Price}, {CarEngine.ToString()}");
+                $"Год создания: {CreationYear}\nСтоимость: {Price}, {CarEngine}");
         }
     }
 }

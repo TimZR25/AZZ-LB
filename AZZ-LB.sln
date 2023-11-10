@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LB-1", "LB-1\LB-1.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LB-1Test", "LB-1Test\LB-1Test.csproj", "{C4CE8AA7-3D7A-4069-AF29-16E2E0608147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LB3-2", "LB-2\LB3-2.csproj", "{C050E814-D114-48CD-A89B-F23CE964CA87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LB3-2", "LB-2\LB3-2.csproj", "{C050E814-D114-48CD-A89B-F23CE964CA87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

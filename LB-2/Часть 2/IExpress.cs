@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LB3_2
 {
-    interface Express
+    interface IExpress
     {
-        public String COut();
+        public string COut();
     }
 }

@@ -16,7 +16,7 @@ namespace LB3_2
 
         private List<Carriage> Carriages { get; set; }
 
-        public Train(String model, double maxSpeed, int creationYear, double price, int power, List<Carriage> carriages)
+        public Train(string model, double maxSpeed, int creationYear, double price, int power, List<Carriage> carriages)
         {
             Model = model;
             MaxSpeed = maxSpeed;
@@ -24,13 +24,13 @@ namespace LB3_2
             Price = price;
             TrainEngine = new Engine(power);
             Carriages = carriages;
-            this.CountCarriageCapacity();
+            CountCarriageCapacity();
         }
 
         public void AddCarriage(Carriage carriage)
         {
             Carriages.Add(carriage);
-            this.CountCarriageCapacity();
+            CountCarriageCapacity();
         }
 
         private void CountCarriageCapacity()
@@ -51,7 +51,7 @@ namespace LB3_2
             Console.WriteLine("Поезд остановился");
         }
 
-        public override String ToString()
+        public override string ToString()
         {
             String s = "\nВместимость вагонов поезда:";
             if (Carriages.Count == 0) { s = ""; }
