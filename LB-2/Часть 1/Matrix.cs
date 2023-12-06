@@ -25,6 +25,20 @@ namespace LB3_2
             set => _matrix[i, j] = value;
         }
 
+        public Matrix(Matrix matrix)
+        {
+            int[,] innerMatrix = matrix.GetMatrix();
+            _matrix = new int[innerMatrix.GetLength(0), innerMatrix.GetLength(1)];
+
+            for (int i = 0; i < innerMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < innerMatrix.GetLength(1); j++)
+                {
+                    _matrix[i, j] = matrix[i, j];
+                }
+            }
+        }
+
         public void PrintMatrix() {
 
             for (int i = 0; i < _matrix.GetLength(0); i++)
@@ -38,28 +52,31 @@ namespace LB3_2
             Console.WriteLine();
         }
 
-        public static Matrix operator --(Matrix matrix)
+        public static Matrix operator -(Matrix matrix, int subObj)
         {
-            for (int i = 0; i < matrix._matrix.GetLength(0); i++)
+            Matrix newMatrix = new Matrix(matrix);
+            for (int i = 0; i < newMatrix._matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < matrix._matrix.GetLength(1); j++)
+                for (int j = 0; j < newMatrix._matrix.GetLength(1); j++)
                 {
-                    matrix._matrix[i, j]--;
+                    newMatrix._matrix[i, j] -= subObj;
                 }
             }
-            return matrix;
+            return newMatrix;
         }
 
         public static Matrix operator ++(Matrix matrix)
         {
-            for (int i = 0; i < matrix._matrix.GetLength(0); i++)
+            Matrix newMatrix = new Matrix(matrix);
+
+            for (int i = 0; i < newMatrix._matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < matrix._matrix.GetLength(1); j++)
+                for (int j = 0; j < newMatrix._matrix.GetLength(1); j++)
                 {
-                    matrix._matrix[i, j]++;
+                    newMatrix._matrix[i, j]++;
                 }
             }
-            return matrix;
+            return newMatrix;
         }
 
 
@@ -97,6 +114,7 @@ namespace LB3_2
         {
             return matrix1.ModMatrix() != matrix2.ModMatrix();
         }
+
         public static bool operator ==(Matrix matrix1, Matrix matrix2)
         {
             return matrix1.ModMatrix() == matrix2.ModMatrix();

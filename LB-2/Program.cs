@@ -26,7 +26,7 @@ namespace LB3_2
 
             matrix.PrintMatrix();
 
-            matrix--;
+            matrix = matrix - 45;
 
             matrix.PrintMatrix();
 
